@@ -1,0 +1,18 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+
+
+[jmix:videojsAlternateFormat] > jmix:templateMixin mixin
+ extends = jnt:videojs
+
+[jmix:videojsAdvanced] > jmix:templateMixin mixin
+ extends = jnt:videojs
+ - width (string) = '640'
+ - height (string) = '264'
+ - mp4 (weakreference,picker[type='file']) < jnt:file
+
+[jnt:videojs] > jnt:content, jmix:multimediaContent, mix:title
+ - poster (weakreference, picker[type='image']) < 'jmix:image'
+ - mp4 (weakreference,picker[type='file']) < jnt:file
+ - webm (weakreference,picker[type='file']) < jnt:file
